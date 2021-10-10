@@ -1,4 +1,5 @@
 from notificationEngine import create_app
+# from notificationEngine import app
 
 app = create_app()
 
