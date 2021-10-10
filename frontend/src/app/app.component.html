@@ -1,0 +1,15 @@
+<div class="container p-0">
+  <div class="main-page row p-0 gx-0"> 
+    <div *ngIf = "showSideMenu" class="side-menu col-2 mr-0 pr-0">
+      <app-side-menu ></app-side-menu>
+    </div>
+    <div [ngClass]="{'col-10 ml-0' : showSideMenu,
+                      'col-12 ml-0' : !showSideMenu}">
+      <app-header></app-header>
+       
+    </div>
+         
+  
+  </div>
+</div>
+

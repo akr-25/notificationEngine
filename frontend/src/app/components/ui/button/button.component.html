@@ -1,0 +1,8 @@
+<button [ngStyle]="{'background-color': color}"
+        class="btn"
+        (click) = "onClick()"
+>
+<mat-icon *ngIf="icon">{{icon}}</mat-icon>
+<!-- <p *ngif="text">{{text}}</p> -->
+{{text}}
+</button>
