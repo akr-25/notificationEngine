@@ -1,0 +1,17 @@
+<mat-card>
+    <mat-card-title>
+        Log in
+    </mat-card-title>
+    <form  class="add-form" (ngSubmit)="onSubmit()">
+        <div class="form-control">
+            <label for="userid">UserID</label>
+            <input type="text" name="userid" [(ngModel)]="userid" id="userid" placeholder="UserID" />
+        </div>
+        <div class="form-control">
+            <label for="password">Password</label>
+            <input type="password" name="password" [(ngModel)]="password"  id="password" placeholder="Password" />
+        </div>
+        <input type="submit" value="Login" class="btn btn-block"/>
+    </form>
+    
+</mat-card>

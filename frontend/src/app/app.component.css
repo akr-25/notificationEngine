@@ -1,0 +1,12 @@
+.container{
+    margin: none;
+    padding: 0 none;
+    max-width: 100vw;
+    min-height:100vh;
+}
+.side-menu{
+    background-color: #3f51b5;
+    margin:0;
+    padding-right:0;
+    margin-right: 0%;
+}
