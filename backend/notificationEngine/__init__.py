@@ -12,12 +12,14 @@ db = SQLAlchemy(app, session_options={"autoflush": False})
 login_manager = LoginManager(app)
 bcrypt = Bcrypt(app)
 
-from notificationEngine.users.routes import users
+from notificationEngine.auth.routes import auth
 from notificationEngine.trigger.routes import triggers
 from notificationEngine.notification.routes import notification
+from notificationEngine.user.routes import user
 
 
-app.register_blueprint(users)
+app.register_blueprint(auth)
+app.register_blueprint(user)
 app.register_blueprint(triggers)
 app.register_blueprint(notification)
 
@@ -35,11 +37,11 @@ app.register_blueprint(notification)
 #     bcrypt.init_app(app)
 #     login_manager.init_app(app)
 
-#     from notificationEngine.users.routes import users
+#     from notificationEngine.auth.routes import auth
 #     from notificationEngine.trigger.routes import triggers
 #     # from notificationEngine.notification.routes import notification
 
-#     app.register_blueprint(users)
+#     app.register_blueprint(auth)
 #     app.register_blueprint(triggers)
 #     # app.register_blueprint(notification)
 

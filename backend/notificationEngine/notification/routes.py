@@ -63,7 +63,7 @@ def new_notification():
             noti = Notification(type=type, title=title, content=content, configuration=data,
                                 createdBy=current_user, isAdmin=True)
             
-            noti.trigger = trig.trigger_id
+            noti.triggers.append(trig)
             db.session.add(noti)
             db.session.commit()
 

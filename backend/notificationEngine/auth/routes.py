@@ -4,10 +4,10 @@ from notificationEngine.models import User
 from flask_login import login_user, current_user, logout_user
 
 
-users = Blueprint('users', __name__)
+auth = Blueprint('auth', __name__)
 
 
-@users.route("/auth/register", methods = ['POST'])
+@auth.route("/auth/register", methods = ['POST'])
 def register():
     if current_user.is_authenticated:
         return {"message": "User already logged in"}, 403
@@ -28,7 +28,7 @@ def register():
         return {"message": "Please provide name, email and password"}, 403
 
 
-@users.route("/auth/login", methods = ["GET"])
+@auth.route("/auth/login", methods = ["GET"])
 def login():
     if current_user.is_authenticated:
         return {"message": "User already logged in"}, 403
@@ -44,7 +44,7 @@ def login():
         return {"message": "Please provide email and password"}, 403
 
 
-@users.route("/auth/logout", methods = ['POST'])
+@auth.route("/auth/logout", methods = ['POST'])
 def logout():
     logout_user()
     return {"message": "Logout Successful"}, 200

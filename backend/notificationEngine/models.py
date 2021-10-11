@@ -1,4 +1,5 @@
 from datetime import datetime
+import json
 from flask import current_app
 from notificationEngine import db, login_manager
 from flask_login import UserMixin
@@ -86,6 +87,19 @@ class Notification(db.Model):
     user_id = Column(Integer, ForeignKey('user.user_id'), nullable=False)
 
 
+    def json(self):
+        trig_config = []
+        for trigger in self.triggers:
+            trig_config.append(trigger.json())
+        return {
+            "noti_id":self.noti_id,
+            "type": self.type,
+            "content": self.content,
+            "configuration": self.configuration,
+            "title": self.title,
+            "triggers": trig_config
+        }
+
     def __repr__(self):
         return f"Notification('{self.type}', '{self.content}', '{self.triggers}')"
 
@@ -104,7 +118,11 @@ class Trigger(db.Model):
     create_time = Column(db.DateTime, nullable=False,default=datetime.utcnow)
     user_id = Column(Integer, ForeignKey('user.user_id'), nullable=False)
 
-
+    def json(self):
+        return {
+            "type":self.type,
+            "configuration": self.configuration
+        }
 
     def __repr__(self):
        return f"""Trigger('{self.type}', '{self.createdBy}', '{self.configuration["role"]}', '{self.configuration["selected_users"]}')"""
