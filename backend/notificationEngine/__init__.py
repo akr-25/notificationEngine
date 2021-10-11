@@ -16,12 +16,16 @@ from notificationEngine.auth.routes import auth
 from notificationEngine.trigger.routes import triggers
 from notificationEngine.notification.routes import notification
 from notificationEngine.user.routes import user
+from notificationEngine.data.routes import data
 
 
 app.register_blueprint(auth)
+app.register_blueprint(data)
 app.register_blueprint(user)
 app.register_blueprint(triggers)
 app.register_blueprint(notification)
+
+
 
 
 # db = SQLAlchemy()

@@ -7,7 +7,11 @@ app.use(cors());
 app.use(morgan("common"));
 
 app.get("/api/test", (req, res) => {
-    return res.status(200).send("Connection Established");
+    return res.status(200).send({
+        "employee": "Abhishek",
+        "email": "abhishek@abc.com",
+        "transactions": "3"
+    });
 })
 
 app.listen(3030, () => {
