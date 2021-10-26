@@ -7,7 +7,7 @@ from notificationEngine.config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:password@localhost:3306/buildathon"
+# app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:password@localhost:3306/buildathon"
 db = SQLAlchemy(app, session_options={"autoflush": False})
 login_manager = LoginManager(app)
 bcrypt = Bcrypt(app)
@@ -16,11 +16,11 @@ from notificationEngine.auth.routes import auth
 from notificationEngine.trigger.routes import triggers
 from notificationEngine.notification.routes import notification
 from notificationEngine.user.routes import user
-from notificationEngine.data.routes import data
+# from notificationEngine.data.routes import data
 
 
 app.register_blueprint(auth)
-app.register_blueprint(data)
+# app.register_blueprint(data)
 app.register_blueprint(user)
 app.register_blueprint(triggers)
 app.register_blueprint(notification)
